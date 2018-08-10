@@ -1,0 +1,68 @@
+$blue: aqua;
+$green: lightgreen;
+$purple: rebeccapurple;
+$red: maroon;
+$white: white;
+$yellow: yellow;
+
+@mixin transform($prop) {
+  -webkit-transform: $prop;
+  -ms-transform: $prop;
+  transform: $prop;
+}
+
+%big-red {
+  background: $red;
+  width: 150px;
+  height: 150px;
+}
+
+body {
+  background: papayawhip;
+}
+
+h1 {
+  color: $green;
+}
+
+nav {
+  background: $purple;
+
+  ul {
+    background: $yellow;
+
+    :nth-child(1) {
+      background: lighten($red, 10%);
+    }
+
+    li {
+      background: $red;
+      color: $white;
+    }
+
+    :last-child {
+      background: darken($red, 10%);
+    }
+  }
+
+}
+
+h3 {
+  color: $blue;
+}
+
+#sect2 {
+
+  div {
+    @include transform(translate(50px) rotate(30deg));
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: $green;
+  }
+
+  #div1 {
+    @extend %big-red;
+  }
+
+}
